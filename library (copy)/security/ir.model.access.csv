@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-library.access_library_person,access_library_person,library.model_res_partner,base.group_user,1,1,1,1
-library.access_library_book,access_library_book,library.model_library_book,base.group_user,1,1,1,1
-library.access_library_author,access_library_author,library.model_library_author,base.group_user,1,1,1,1
-library.access_library_order,access_library_order,library.model_library_order,base.group_user,1,1,1,1
-library.access_library_order_line,access_library_order_line,library.model_library_order_line,base.group_user,1,1,1,1
-library.access_library_borrow,access_library_borrow,library.model_library_borrow,base.group_user,1,1,1,1
-library.access_library_category,access_library_category,library.model_library_category,base.group_user,1,1,1,1
-library.access_library_history,access_library_history,library.model_library_history,base.group_user,1,1,1,1
