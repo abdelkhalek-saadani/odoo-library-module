@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="inherited_res_partner_view_form" model="ir.ui.view">
+        <field name="name">inherited.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- find field description and add the field
+                 new_field after it -->
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='company_type']" position="replace">
+                <field name="person_type" widget="radio" options="{'horizontal': true}" />
+            </xpath>
+
+            <xpath expr="//field[@name='parent_id']" position="attributes" >
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath>
+
+            <xpath expr="//notebook" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@class='oe_chatter']" position="attributes">
+                <!-- Modify or add attributes here as needed -->
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath> 
+            
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath> 
+
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath> 
+
+            <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath> 
+            
+            <xpath expr="//field[@name='country_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath> 
+
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="modifiers">{"invisible": true}</attribute>
+            </xpath> 
+            
+            
+            
+            <xpath expr="//field[@name='country_id']" position="after" >
+                <field name="personal_notes" placeholder="Notes"/>    
+            </xpath>
+
+            <xpath expr="//field[@name='function']" position="after" >
+                <field name="cin"/>    
+            </xpath>
+            
+            
+            
+            
+
+        </field>
+    </record>
+
+    <record id ="action_library_person" model="ir.actions.act_window">
+        <field name="name">Persons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+<menuitem id="menu_library_root"
+        name="Library"
+        sequence="10"
+        action="action_library_person"
+    />
+    <menuitem id="menu_library_persons"
+        name="Patrons"
+        sequence="10"
+        parent="menu_library_root"
+        action="action_library_person"
+    />
+    
+
+
+
+    
+
+    
+</odoo>

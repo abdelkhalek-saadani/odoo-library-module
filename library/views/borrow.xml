@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+
+    <record id="library_checkout_tree_view" model="ir.ui.view">
+        <field name="name">view.library.borrow.tree</field>
+        <field name="model">library.borrow</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref" readonly="1"/>
+                <field name="person_id" />
+                    <field name="book_id"/>
+                    <field name="create_date" string="Checkout Date" />
+                    <field name="expected_return_date"/>
+                    <field name="actual_return_date"/>
+                    <field name="is_returned"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="library_checkout_form_view" model="ir.ui.view">
+        <field name="name">view.library.borrow.form</field>
+        <field name="model">library.borrow</field>
+        <field name="arch" type="xml">
+            <form string="Checkout">
+                <group>
+                    <field name="ref" />
+                    <field name="person_id" />
+                    <field name="book_id"/>
+                    <field name="create_date" string="Checkout Date" />
+                    <field name="expected_return_date"/>
+                    <field name="actual_return_date"/>
+                    <field name="is_returned" attrs="{'readonly': [('is_returned', '=', True)]}" />
+                </group>
+            </form>
+
+        </field>
+    </record>
+
+
+    <record id="action_library_checkout" model="ir.actions.act_window">
+        <field name="name">Checkout</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library.borrow</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_library_checkouts"
+        name="Checkout"
+        sequence="10"
+        parent="menu_library_root"
+        action="action_library_checkout"
+    />
+
+
+</odoo>

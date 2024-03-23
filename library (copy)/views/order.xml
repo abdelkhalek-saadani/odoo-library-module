@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+
+    <record id="library_order_tree_view" model="ir.ui.view">
+        <field name="name">view.library.order.tree</field>
+        <field name="model">library.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref" />
+                <field name="person_id" />
+                <field name="total_price"   />
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="library_order_form_view" model="ir.ui.view">
+        <field name="name">view.library.order.form</field>
+        <field name="model">library.order</field>
+        <field name="arch" type="xml">
+            <form string="Order">
+                <group>
+                    <field name="person_id" />
+                    <field name="order_line_ids"/>
+                    <field name="total_price"   />
+                </group>
+            </form>
+
+        </field>
+    </record>
+
+
+    <record id="action_library_order" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_library_orders"
+        name="Orders"
+        sequence="10"
+        parent="menu_library_root"
+        action="action_library_order"
+    />
+
+
+</odoo>
