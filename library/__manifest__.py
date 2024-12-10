@@ -14,8 +14,7 @@
         "views/order_line.xml",
         "views/borrow.xml",
         "views/history.xml"
-
-        
-        #"views/departments.xml",
-    ]
+    ],
+    'installable': True,
+    'application': True,
 }
