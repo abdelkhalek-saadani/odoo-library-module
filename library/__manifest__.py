@@ -8,7 +8,7 @@
         "data/sequence.xml",
 
         "views/person.xml",
-"views/menu.xml",
+        "views/menu.xml",
         "views/book.xml",
         "views/order.xml",
         "views/order_line.xml",

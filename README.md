@@ -1,4 +1,4 @@
-# Library Management Odoo Module
+# Library Management Odoo Module 📚
 
 An Odoo module designed to simplify and streamline library management tasks, including book inventory, member management, and borrowing/returning books.
 
